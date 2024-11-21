@@ -11,12 +11,7 @@ app.use(cors());
 app.get('/cart-total', (req, res) => {
   const cartTotal = parseFloat(req.query.cartTotal);
   const newItemPrice = parseFloat(req.query.newItemPrice);
-  let toatlCartValue = null;
-  if (cartTotal === 0) {
-    toatlCartValue = newItemPrice;
-  } else {
-    toatlCartValue = cartTotal * newItemPrice;
-  }
+  let toatlCartValue = cartTotal + newItemPrice;
   return res.send(toatlCartValue.toString());
 });
 
